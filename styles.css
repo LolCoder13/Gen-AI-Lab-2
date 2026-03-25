@@ -624,8 +624,63 @@ body::after {
   border: 1px solid #d8dde8;
 }
 
+.msg-content {
+  display: grid;
+  gap: 10px;
+}
+
+.msg-content > * {
+  margin: 0;
+}
+
+.msg-content p {
+  white-space: pre-wrap;
+}
+
+.msg-content ul,
+.msg-content ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+.msg-content code {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 12px;
+  background: rgba(40, 58, 84, 0.12);
+  border: 1px solid rgba(40, 58, 84, 0.2);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+.msg-content pre {
+  margin: 0;
+  overflow-x: auto;
+  background: rgba(24, 31, 45, 0.96);
+  color: #d9e7ff;
+  border: 1px solid rgba(91, 116, 160, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.msg-content pre code {
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: 1.45;
+}
+
 :root[data-theme="dark"] .msg.assistant {
   border-color: #3a4560;
+}
+
+:root[data-theme="dark"] .msg-content code {
+  background: rgba(131, 169, 219, 0.18);
+  border-color: rgba(131, 169, 219, 0.34);
 }
 
 .msg.thinking {
