@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT UI Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Chats</h2>
+      <button id="sidebar-new-chat" class="sidebar-new-chat active">New Chat</button>
+      <ul id="chat-list" class="chat-list">
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <section class="chat-card">
+        <header class="chat-header">
+          <div class="header-copy">
+            <h1>VibeChat Studio</h1>
+            <p class="header-subtitle">Fast chat, image generation, and model switching in one place.</p>
+            <label class="model-row" for="model-select">
+              <span>Model:</span>
+              <select id="model-select">
+                <option>gemini-2.5-flash</option>
+                <option>gemini-2.0-flash</option>
+                <option>gemini-2.5-pro</option>
+                <option>hf-text:google/gemma-3-12b-it</option>
+                <option>hf-text:Qwen/Qwen2.5-7B-Instruct</option>
+                <option>gemini-3.1-flash-image-preview</option>
+                <option>gemini-2.5-flash-image</option>
+                <option>gemini-2.0-flash-exp-image-generation</option>
+                <option>hf-image:black-forest-labs/FLUX.1-schnell</option>
+                <option>hf-image:black-forest-labs/FLUX.1-dev</option>
+              </select>
+            </label>
+            <div class="speech-row">
+              <label for="stt-model-select">STT:</label>
+              <select id="stt-model-select">
+                <option>gpt-4o-mini-transcribe</option>
+                <option>whisper-1</option>
+                <option>hf-stt:openai/whisper-large-v3</option>
+              </select>
+              <label for="tts-model-select">TTS:</label>
+              <select id="tts-model-select">
+                <option>browser-tts</option>
+                <option selected>gpt-4o-mini-tts</option>
+                <option>tts-1</option>
+                <option>hf-tts:espnet/kan-bayashi_ljspeech_vits</option>
+                <option>hf-tts:facebook/mms-tts-eng</option>
+              </select>
+              <select id="tts-voice-select" aria-label="TTS voice">
+                <option>alloy</option>
+                <option>verse</option>
+                <option>aria</option>
+              </select>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button id="read-last-btn" class="ui-toggle-btn" type="button">Read Reply</button>
+            <button id="reset-history-btn" class="reset-btn" type="button">Reset History</button>
+            <button id="header-new-chat" class="new-chat-btn" type="button">New Chat</button>
+          </div>
+        </header>
+
+        <div id="messages" class="messages"></div>
+
+        <form id="composer" class="composer" autocomplete="off">
+          <div id="attachment-list" class="attachment-list" aria-live="polite"></div>
+          <div class="composer-row">
+            <label class="attach-btn" for="attachment-input">Attach</label>
+            <button id="mic-btn" class="mic-btn" type="button">Mic</button>
+            <input
+              id="attachment-input"
+              class="attachment-input"
+              type="file"
+              multiple
+              accept="image/*,.txt,.md,.csv,.json,.pdf"
+              aria-label="Attachments"
+            />
+            <input
+              id="prompt-input"
+              type="text"
+              placeholder="Ask anything or attach files/images"
+              aria-label="Prompt"
+            />
+            <button type="submit" class="send-btn">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
